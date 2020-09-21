@@ -1,6 +1,6 @@
 import java.util.regex.Matcher;
 
-public interface DataVerification {
+public interface Verification {
     Boolean isRomanNumber(String valueStr);
 
     Boolean isArabicNumber(String valueStr);

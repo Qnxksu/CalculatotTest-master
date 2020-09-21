@@ -2,18 +2,18 @@ import java.util.regex.Matcher;
 
 class Calculator {
     private DataInputOutput inputOutput;
-    private DataVerification verification;
-    private ConverterNumber converterNumber;
-    private Calc calc;
+    private Verification verification;
+    private ConvertNumber convertNumber;
+    private Calcul calcul;
 
-    Calculator(DataInputOutput inputOutput, DataVerification verification, ConverterNumber converterNumber, Calc calc) {
+    Calculator(DataInputOutput inputOutput, Verification verification, ConvertNumber convertNumber, Calcul calcul) {
         this.inputOutput = inputOutput;
         this.verification = verification;
-        this.converterNumber = converterNumber;
-        this.calc = calc;
+        this.convertNumber = convertNumber;
+        this.calcul = calcul;
     }
 
-    void start() throws IncorrectDataEntryException {
+    void start() throws IncorrectEntry {
         String str;
         while (!(str = inputOutput.input()).equals("EXIT")) {
             if (verification.isArabicNumber(str)) {
@@ -21,14 +21,14 @@ class Calculator {
                 int a1 = Integer.parseInt(resultMatch.group(1));
                 int b1 = Integer.parseInt(resultMatch.group(3));
                 char c = resultMatch.group(2).charAt(0);
-                inputOutput.output(calc.calc(a1, b1, c).toString());
+                inputOutput.output(calcul.calc(a1, b1, c).toString());
             } else if (verification.isRomanNumber(str)) {
                 Matcher resultMatch = verification.getMatcherRomanNumber(str);
-                int a1 = converterNumber.convert(resultMatch.group(1));
-                int b1 = converterNumber.convert(resultMatch.group(3));
+                int a1 = convertNumber.convert(resultMatch.group(1));
+                int b1 = convertNumber.convert(resultMatch.group(3));
                 char c = resultMatch.group(2).charAt(0);
-                inputOutput.output(converterNumber.reverseConvert(calc.calc(a1, b1, c).intValue()));
-            } else throw new IncorrectDataEntryException("Неверно введены данные!!!");
+                inputOutput.output(convertNumber.reverseConvert(calcul.calc(a1, b1, c).intValue()));
+            } else throw new IncorrectEntry("Данные введены не верно!");
         }
     }
 }
