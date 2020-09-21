@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-class DataInputOutputConsole implements DataInputOutput {
+class DataInOutCons implements DataInputOutput {
     private Scanner scanner = new Scanner(System.in);
 
     private String dataInput(String query) {
@@ -9,12 +9,12 @@ class DataInputOutputConsole implements DataInputOutput {
         return scanner.nextLine();
     }
 
-    @Override
+
     public String input() {
-        return dataInput("Введите математическое выражение: ");
+        return dataInput("Введите выражение: ");
     }
 
-    @Override
+
     public void output(String out) {
         System.out.println("Результат вычесления: " + out);
     }

@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 
-class CalcImpl implements Calc {
-    @Override
+class CalcTest implements Calcul {
+
     public BigDecimal calc(int num1, int num2, char operation) {
         BigDecimal a = new BigDecimal(num1);
         BigDecimal b = new BigDecimal(num2);

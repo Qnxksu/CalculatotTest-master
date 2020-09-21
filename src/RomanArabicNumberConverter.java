@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-class RomanArabicNumberConverter implements ConverterNumber {
+class RomanArabicNumberConverter implements ConvertNumber {
 
-    @Override
+
     public int convert(String romeValue) {
         int arabicNumber = 0;
         int subtractionRuleNumber = 0;
@@ -30,7 +30,7 @@ class RomanArabicNumberConverter implements ConverterNumber {
         return arabicNumber;
     }
 
-    @Override
+
     public String reverseConvert(int value) {
         StringBuilder result = new StringBuilder();
         while (value > 0) {
